@@ -138,7 +138,7 @@ router.put("/changePassword", async (req, res) => {
       data.set(tempData.data);
       await data.save();
       
-      let resetURL = process.env.resetURL
+      let resetURL = process.env.baseURL + '/admin/passwordreset';
       resetURL = resetURL+"?id="+data._id+"&rs="+salt
           try {
             const sendMail = require('../services/mailService');
