@@ -130,7 +130,7 @@ router.put("/changePassword", async (req, res) => {
             const sendMail = require('../services/mailService');
             
             sendMail({
-              from: "sukritippl@gmail.com",
+              from: process.env.EMAIL,
               to: req.body.email,
               subject: 'CRM Reset Password',
               text: `${resetURL}`,

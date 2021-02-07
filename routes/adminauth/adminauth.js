@@ -30,14 +30,14 @@ var transporter = nodemailer.createTransport({
     secure: true,
   auth: {
     type: 'OAuth2',
-         user: 'jayant8194@gmail.com',
-         pass: 'because#@8'
+         user: process.env.EMAIL,
+         pass: process.env.PASSWORD
      }
  });
 
  const mailOptions = {
-  from: 'jayant8194@gmail.com', 
-  to: 'jayant8194@gmail.com', 
+  from: process.env.EMAIL, 
+  to: process.env.EMAIL, 
   subject: 'Password reset', 
   html: ''
 };
