@@ -2,7 +2,6 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
-const nodemailer = require("nodemailer");
 
 const mongodb = require("mongodb")
 const objectId = mongodb.ObjectID

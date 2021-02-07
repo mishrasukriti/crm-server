@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
+
 const User = require("../../models/User");
 const verify = require("./adminverfiy");
 
@@ -23,29 +23,6 @@ const loginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-  auth: {
-    type: 'OAuth2',
-         user: process.env.EMAIL,
-         pass: process.env.PASSWORD
-     }
- });
-
- const mailOptions = {
-  from: process.env.EMAIL, 
-  to: process.env.EMAIL, 
-  subject: 'Password reset', 
-  html: ''
-};
-
-let sampleMail = '<p>Hi, </p>'
-                 +'<p>Please click on this link to reset password</p>'
-                 +'<a target="blank" href="urlToBeReplaced">urlToBeReplaced</a>'
-                 +'<p>Regards</p>'
 
 //SIGNUP USER
 router.post("/register", async (req, res) => {
