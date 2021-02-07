@@ -8,6 +8,7 @@ const ServiceRequest = require("../../models/ServiceRequest");
 const Lead = require("../../models/Lead");
 const Contact = require("../../models/Contact");
 const sendMail = require("../../sampleMail");
+const User = require("../../models/User");
 
 //VALIDATION OF USER INPUTS PREREQUISITES
 const Joi = require("@hapi/joi");
