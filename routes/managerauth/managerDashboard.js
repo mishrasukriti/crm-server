@@ -272,6 +272,19 @@ router.put("/contact/:id", async (req, res) => {
   }
 });
 
+
+//USERS
+router.get("/users", verify, async (req, res) => {
+  try {
+    const users = await User.find().exec();
+    res.status(200).send(users);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
+
+
 // API TO GET COUNT OF SEVICE-REQUEST, LEAD AND COUNT
 
 

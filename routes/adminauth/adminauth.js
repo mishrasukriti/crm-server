@@ -156,18 +156,6 @@ router.put("/changePassword", async (req, res) => {
 
 
 
-//DELETE USER
-
-router.delete("/deleteuser", verify, async (req, res) => {
-  try {
-    const users = await User.deleteOne({ email: req.body.email });
-    res.status(200).send("deleted suuccesfully");
-  } 
-  catch (error) {
-    console.log(error);
-    res.status(400).send(error);
-  }
-});
 
 // Change Password functionality
 router.put("/changePassword", async (req, res) => {
@@ -268,5 +256,20 @@ router.put("/updatePassword", async (req, res) => {
     })
   }
 });
+
+
+//DELETE USER
+
+router.delete("/deleteuser", verify, async (req, res) => {
+  try {
+    const users = await User.deleteOne({ email: req.body.email });
+    res.status(200).send("deleted suuccesfully");
+  } 
+  catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
+
 
 module.exports = router;
