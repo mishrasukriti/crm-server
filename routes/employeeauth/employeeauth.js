@@ -22,9 +22,7 @@ const loginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
-//ADMIN TOKEN VERIFICATIOn
-const adminVerify = require("../adminauth/adminverfiy");
-const managerverify = require("../managerauth/managerverify");
+//ADMIN/MANAGER TOKEN VERIFICATIOn
 const registerVerify = require("./registerVerify");
 
 //SIGNUP USER

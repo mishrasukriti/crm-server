@@ -10,12 +10,10 @@ module.exports = function (req, res, next) {
     jwt.verify(token, process.env.MANAGER_TOKEN_SECRET, (err, verifiedJwt) => {
       managerJwt = verifiedJwt;
     })
-  // console.log("admin", adminJwt);
-  // console.log("manager", managerJwt);
   console.log(adminJwt || managerJwt)
   if(adminJwt || managerJwt){
     req.user = adminJwt || managerJwt;
-    // console.log(req.user)
+    
     next();
  }else{
   res.status(400).send("Invalid token");
